@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-        <span>{{number}}</span>
+    <ul>
+        {% for node in nodes %}
+            <li><a href="/node/{{node.id}}">{{node.text}}</a></li> <br>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/node/add">Add claim</a>
 </body>
 </html>

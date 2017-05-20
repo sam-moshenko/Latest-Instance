@@ -25,7 +25,7 @@ SECRET_KEY = '0-!k1ci0ig7il_zmqcuf#f)^e(6jnd^glz=hw0bw2n&qf)95yx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []#['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3',
-    'latestInstance.apps.latestInstance_claim'
+    'latestInstance.apps.latestInstance_claim',
+    'mptt'
 ]
 
 MIDDLEWARE = [
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True
 

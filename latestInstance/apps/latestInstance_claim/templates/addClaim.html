@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add claim</title>
+</head>
+<body>
+    <a href="/"><< go back</a>
+    <br><br>
+    <form action="/node/add/" method="post">
+        {% csrf_token %}
+        <label for="text">Write your claim without arguments:</label>
+        <br>
+        <textarea name="text" id="text"></textarea>
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

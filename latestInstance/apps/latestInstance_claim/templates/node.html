@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node</title>
+</head>
+<body>
+    <a href="/node/{{claim.parent.id}}"><< go back</a>
+    <br><br>
+    <b>{{ claim }}</b>
+    <br>
+    <a href="/node/add/{{claim.id}}"> argue/argument</a>
+    <br><br>
+    {% load mptt_tags %}
+    <ul>
+        {% recursetree nodes %}
+            <li>
+                {% if node.argument %}
+                    <font color="green">
+                {% else %}
+                    <font color="red">
+                {% endif %}
+                {{node.text}}
+                </font>
+                <br>
+                <a href="/node/add/{{node.id}}"> argue/argument</a>
+                <br><br><br>
+                {% if not node.is_leaf_node %}
+                    <ul class="children">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endrecursetree %}
+    </ul>
+</body>
+</html>

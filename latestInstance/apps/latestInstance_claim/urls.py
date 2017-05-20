@@ -18,5 +18,8 @@ from django.contrib import admin
 from latestInstance.apps.latestInstance_claim import views
 
 urlpatterns = [
-    url(r'^index$', views.index)
+    url(r'^$', views.index),
+    url(r'^node/add/$', views.addClaim),
+    url(r'^node/add/(?P<id>\w{0,50})/$', views.add),
+    url(r'^node/(?P<id>\w{0,50})/$', views.node)
 ]

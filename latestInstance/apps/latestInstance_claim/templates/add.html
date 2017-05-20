@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add argument or counterargument</title>
+</head>
+<body>
+    <a href="/node/{{root.id}}"><< go back</a>
+    <br><br>
+    <b>{{ node }}</b>
+    <br><br>
+    <form action="/node/add/{{node.id}}/" method="post">
+        {% csrf_token %}
+        <label for="text">Enter your argument/counterargument:</label>
+        <br>
+        <textarea name="text" id="text"></textarea>
+        <br><br>
+        <input type="checkbox" name="isArgument" id="isArgument" />
+        <label for="isArgument">It is argument</label>
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
