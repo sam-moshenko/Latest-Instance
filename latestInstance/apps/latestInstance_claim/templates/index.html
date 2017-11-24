@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <ul>
-        {% for node in nodes %}
-            <li><a href="/node/{{node.id}}">{{node.text}}</a></li> <br>
-        {% endfor %}
-    </ul>
-    <br>
-    <a href="/node/add">Add claim</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Youarg</title>
+{% endblock %}
+
+{% block body %}
+  <div class="list-group">
+      {% for node in nodes %}
+          <a href="/node/{{node.id}}" class="list-group-item">{{node.text}}</a>
+      {% endfor %}
+  </div>
+  <br>
+  <a href="/node/add" class="btn btn-primary">Add claim</a>
+{% endblock %}

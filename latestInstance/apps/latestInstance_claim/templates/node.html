@@ -1,37 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Node</title>
-</head>
-<body>
-    <a href="/node/{{claim.parent.id}}"><< go back</a>
-    <br><br>
-    <b>{{ claim }}</b>
-    <br>
-    <a href="/node/add/{{claim.id}}"> argue/argument</a>
-    <br><br>
-    {% load mptt_tags %}
-    <ul>
-        {% recursetree nodes %}
-            <li>
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>{{ claim }}</title>
+  <style>
+   li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <a class="btn btn-secondary" href="/node/{{claim.parent.id}}"><< go back</a>
+  <br><br>
+  <div class="card">
+    <div class="card-body">
+      <b>{{ claim }}</b>
+      <br><br>
+      <a class="btn btn-primary btn-sm" href="/node/add/{{claim.id}}"> argue/argument</a>
+    </div>
+  </div>
+  <br>
+  {% load mptt_tags %}
+  <ul>
+      {% recursetree nodes %}
+          <li>
+            <div class="card">
+              <div class="card-body">
                 {% if node.argument %}
-                    <font color="green">
+                <font color="green">
                 {% else %}
-                    <font color="red">
+                <font color="red">
                 {% endif %}
                 {{node.text}}
                 </font>
-                <br>
-                <a href="/node/add/{{node.id}}"> argue/argument</a>
-                <br><br><br>
-                {% if not node.is_leaf_node %}
-                    <ul class="children">
-                        {{ children }}
-                    </ul>
-                {% endif %}
-            </li>
-        {% endrecursetree %}
+                <br><br>
+                <a class="btn btn-primary btn-sm" href="/node/add/{{node.id}}"> argue/argument</a>
+              </div>
+            </div>
+            <br>
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+          </li>
+      {% endrecursetree %}
     </ul>
-</body>
-</html>
+{% endblock %}
